@@ -16,6 +16,14 @@
   <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    window.onload = () => {
+      const { jsPDF } = window.jspdf;
+
+      window.jsPDF = jsPDF;
+    };
+  </script>
   <h1> MALLA DERECHO 6.0 </h1>
   <div class="container">
     <div class="semestre">

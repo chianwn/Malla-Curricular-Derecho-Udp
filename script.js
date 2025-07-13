@@ -33,8 +33,9 @@ function marcarCurso(cursoDiv) {
 function calcularCreditos() {
   document.querySelectorAll('.semestre').forEach(semestre => {
     let total = 0;
+    const cursosEnSemestre = semestre.querySelectorAll('.curso');
 
-    semestre.querySelectorAll('.curso').forEach(curso => {
+    cursosEnSemestre.forEach(curso => {
       const creditos = parseInt(curso.dataset.creditos) || 0;
       total += creditos;
     });
@@ -44,16 +45,19 @@ function calcularCreditos() {
       const actuales = infoDiv.querySelector('.actuales');
       const maximos = infoDiv.querySelector('.maximos');
 
-      if (actuales) {
-        actuales.textContent = `Créditos actuales: ${total}`;
-        actuales.style.color = total > 32 ? '#cc0033' : '#00cc88';
+      actuales.textContent = `Créditos actuales: ${total}`;
+      maximos.textContent = `Máximo permitido: 32`;
+
+      actuales.className = 'actuales';
+
+      if (total > 32) {
+        actuales.classList.add('excedido'); 
       }
-      if (maximos) {
-        maximos.textContent = `Máximo permitido: 32`;
-      }
+
     }
   });
 }
+
 
 function actualizarNombre(input) {
   const cursoDiv = input.closest('.curso');
@@ -143,8 +147,8 @@ function cargarEstado() {
 }
 
 function exportarPDF() {
-  const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
+
   
   doc.setFontSize(20);
   doc.text('MALLA DERECHO 6.0 - Progreso Académico', 20, 20);
@@ -168,15 +172,16 @@ function exportarPDF() {
     
     semestre.querySelectorAll('.curso').forEach(curso => {
       const nombre = curso.querySelector('h3').textContent;
-      const creditos = curso.querySelector('p').textContent;
-      const cursoInfo = `${nombre} - ${creditos}`;
-      
+
+            const cursoInfo = `${nombre} - ${creditos}`; 
+
       if (curso.classList.contains('aprobado')) {
         cursosAprobados.push(cursoInfo);
       } else {
         cursosPendientes.push(cursoInfo);
       }
     });
+
     
     if (cursosAprobados.length > 0) {
       doc.setFontSize(12);
@@ -210,10 +215,12 @@ function exportarPDF() {
       });
     }
     
-    const creditoInfo = semestre.querySelector('.credito-info .actuales').textContent;
-    doc.setFontSize(10);
-    doc.text(creditoInfo, 25, yPosition);
-    yPosition += 15;
+    const creditoSpan = semestre.querySelector('.credito-info .actuales');
+    if (creditoSpan) {
+      doc.setFontSize(10);
+      doc.text(creditoSpan.textContent, 25, yPosition);
+      yPosition += 15;
+    }
   });
   
   const fecha = new Date().toLocaleDateString();
@@ -237,8 +244,11 @@ window.onload = function () {
       ghostClass: 'ghost',
       group: 'cursos',
       draggable: '.curso',
-      onEnd: function() {
-        guardarEstado();
+      onEnd: function () {
+        setTimeout(() => {
+          calcularCreditos();  
+          guardarEstado();     
+        }, 100);
       }
     });
   });
@@ -247,3 +257,5 @@ window.onload = function () {
   verificarDesbloqueos();
   calcularCreditos();
 };
+
+
