@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+  <h1> MALLA DERECHO 6.0 </h1>
+  <div class="container">
+    <div class="semestre">
+      <h2>1º Semestre</h2>
+      <hr class="linea-decorativa">
+      <div class="curso" id="DER06111" data-requisitos="" data-creditos="5" onclick="marcarCurso(this)">
+        <h3> Fundamentos histórico-sociales del Derecho privado</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06112" data-requisitos="" data-creditos="5" onclick="marcarCurso(this)">
+        <h3> Instituciones Políticas y Derechos Humanos</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06113" data-requisitos="" data-creditos="10" onclick="marcarCurso(this)">
+        <h3>  Taller de razonamiento jurídico</h3>
+        <p>10 créditos</p>
+      </div>
+      <div class="curso" id="DER06114" data-requisitos="" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>   Taller de investigación y escritura legal</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06115" data-requisitos="" data-creditos="3" onclick="marcarCurso(this)">
+        <h3>  Comunicación oral </h3>
+        <p>3 créditos</p>
+      </div>
+      <div class="credito-info">
+        <span class="actuales">Créditos actuales: 0</span><br>
+        <span class="maximos">Máximo permitido: 32</span>
+      </div>
+    </div>
+    <div class="semestre">
+      <h2>2º Semestre</h2>
+      <hr class="linea-decorativa">
+      <div class="curso" id="DER06121" data-requisitos="DER06111" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>  Persona y acto jurídico</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06122" data-requisitos="DER06112" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>  Derecho Constitucional Orgánico </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06123" data-requisitos="DER06113" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>  Introducción al Derecho I </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06124" data-requisitos="DER06113" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Bases Generales del Derecho Procesal</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso editable-cfg" id="CFG1_6" data-requisitos="" data-creditos="0" onclick="marcarCurso(this)">
+        <h3>  Formación General 1</h3>
+        <div class="cfg-fields">
+          <input type="text" class="cfg-nombre" placeholder="Nombre del curso CFG" oninput="actualizarNombre(this)">
+          <input type="number" class="cfg-creditos" placeholder="Créditos" min="1" max="10" oninput="actualizarCreditos(this)">
+        </div>
+      </div>
+      <div class="curso" id="CIG1012" data-requisitos="" data-creditos="variable" onclick="marcarCurso(this)">
+        <h3> Inglés General I</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="credito-info">
+        <span class="actuales">Créditos actuales: 0</span><br>
+        <span class="maximos">Máximo permitido: 32</span>
+      </div>
+    </div>
+    <div class="semestre">
+      <h2>3º Semestre</h2>
+      <hr class="linea-decorativa">
+      <div class="curso" id="DER06211" data-requisitos="DER06121" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derechos Reales y derecho inmobiliario</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06212" data-requisitos="DER06122" data-creditos="7" onclick="marcarCurso(this)">
+        <h3>Derechos Fundamentales </h3>
+        <p>7 créditos</p>
+      </div>
+      <div class="curso" id="DER06213" data-requisitos="DER06123" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Introducción al Derecho II </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06214" data-requisitos="DER06114" data-creditos="5" onclick="marcarCurso(this)">
+        <h3> Economía y Derecho (FI) </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso editable-cfg" id="CFG2_6" data-requisitos="" data-creditos="0" onclick="marcarCurso(this)">
+        <h3>Formación General 2</h3>
+        <div class="cfg-fields">
+          <input type="text" class="cfg-nombre" placeholder="Nombre del curso CFG" oninput="actualizarNombre(this)">
+          <input type="number" class="cfg-creditos" placeholder="Créditos" min="1" max="10" oninput="actualizarCreditos(this)">
+        </div>
+      </div>
+      <div class="curso" id="CIG1013" data-requisitos="CIG1012" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Inglés General II</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="credito-info">
+        <span class="actuales">Créditos actuales: 0</span><br>
+        <span class="maximos">Máximo permitido: 32</span>
+      </div>
+    </div>
+    <div class="semestre">
+      <h2>4º Semestre</h2>
+      <hr class="linea-decorativa">
+      <div class="curso" id="DER06221" data-requisitos="DER06211" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho de las obligaciones</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06222" data-requisitos="DER06123" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho Penal Parte general I</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06223" data-requisitos="DER06115,DER06124,DER06211,DER06212,DER06213" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Litigación Oral</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06224" data-requisitos="DER06214" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho Regulatorio </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso editable-cfg" id="CFG3_6" data-requisitos="" data-creditos="0" onclick="marcarCurso(this)">
+        <h3>Formación General 3</h3>
+       <div class="cfg-fields">
+          <input type="text" class="cfg-nombre" placeholder="Nombre del curso CFG" oninput="actualizarNombre(this)">
+          <input type="number" class="cfg-creditos" placeholder="Créditos" min="1" max="10" oninput="actualizarCreditos(this)">
+        </div>
+      </div>
+      <div class="curso" id="CIG1014" data-requisitos="CIG1013" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Inglés General III</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="credito-info">
+        <span class="actuales">Créditos actuales: 0</span><br>
+        <span class="maximos">Máximo permitido: 32</span>
+      </div>
+    </div>
+    <div class="semestre">
+      <h2>5º Semestre</h2>
+      <hr class="linea-decorativa">
+      <div class="curso" id="DER06311" data-requisitos="DER06221" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho de daños</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06312" data-requisitos="DER06212" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho Internacional Público </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06313" data-requisitos="DER06213,DER06222" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho Penal Parte general II </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06314" data-requisitos="DER06223" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Procedimientos judiciales </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06315" data-requisitos="DER06224" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho Comercial</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso editable-cfg" id="CFG4_6" data-requisitos="" data-creditos="0" onclick="marcarCurso(this)">
+        <h3>Formación General 4</h3>
+      <div class="cfg-fields">
+          <input type="text" class="cfg-nombre" placeholder="Nombre del curso CFG" oninput="actualizarNombre(this)">
+          <input type="number" class="cfg-creditos" placeholder="Créditos" min="1" max="10" oninput="actualizarCreditos(this)">
+        </div>
+      </div>
+      <div class="credito-info">
+        <span class="actuales">Créditos actuales: 0</span><br>
+        <span class="maximos">Máximo permitido: 32</span>
+      </div>
+    </div>
+    <div class="semestre">
+      <h2>6º Semestre</h2>
+      <hr class="linea-decorativa">
+      <div class="curso" id="DER06321" data-requisitos="DER06114,DER06311" data-creditos="7" onclick="marcarCurso(this)">
+        <h3>Contratos</h3>
+        <p>7 créditos</p>
+      </div>
+      <div class="curso" id="DER06322" data-requisitos="DER06223,DER06224" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho Administrativo</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06323" data-requisitos="DER06313" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho Penal parte especial</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06324" data-requisitos="DER06315" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho Societario</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso editable-cfg" id="CFG5_6" data-requisitos="" data-creditos="0" onclick="marcarCurso(this)">
+        <h3>Formación General 5</h3>
+        <div class="cfg-fields">
+          <input type="text" class="cfg-nombre" placeholder="Nombre del curso CFG" oninput="actualizarNombre(this)">
+          <input type="number" class="cfg-creditos" placeholder="Créditos" min="1" max="10" oninput="actualizarCreditos(this)">
+        </div>
+      </div>
+      <div class="curso editable-cfg" id="CFG6_6" data-requisitos="" data-creditos="0" onclick="marcarCurso(this)">
+        <h3>Formación General 6</h3>
+ <div class="cfg-fields">
+          <input type="text" class="cfg-nombre" placeholder="Nombre del curso CFG" oninput="actualizarNombre(this)">
+          <input type="number" class="cfg-creditos" placeholder="Créditos" min="1" max="10" oninput="actualizarCreditos(this)">
+        </div>
+      </div>
+      <div class="credito-info">
+        <span class="actuales">Créditos actuales: 0</span><br>
+        <span class="maximos">Máximo permitido: 32</span>
+      </div>
+    </div>
+    <div class="semestre">
+      <h2>7º Semestre</h2>
+      <hr class="linea-decorativa">
+      <div class="curso" id="DER06411" data-requisitos="DER06321" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho de familia y sucesorio </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06412" data-requisitos="DER06332" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho y medio ambiente (FI) </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06413" data-requisitos="DER06323" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Proceso penal</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06414" data-requisitos="DER06314" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Taller de negociación en procesos colaborativos (FI)</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06415" data-requisitos="DER06224" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho Tributario</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06416" data-requisitos="DER06214,DER06223" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Derecho del Trabajo</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="credito-info">
+        <span class="actuales">Créditos actuales: 0</span><br>
+        <span class="maximos">Máximo permitido: 32</span>
+      </div>
+    </div>
+    <div class="semestre">
+      <h2>8º Semestre</h2>
+      <hr class="linea-decorativa">
+      <div class="curso" id="DER06C_F1" data-requisitos="DER06411,DER06412,DER06413,DER06414,DER06324,CFG6_6" data-creditos="12" onclick="marcarCurso(this)">
+        <h3>ACI Clínicas jurídicas/Pasantía supervisada</h3>
+        <p>12 créditos</p>
+      </div>
+      <div class="curso" id="DER06OPT1" data-requisitos="DER06321,DER06322,DER06323,DER06324" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Curso optativo I </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06OPT2" data-requisitos="DER06321,DER06322,DER06323,DER06324" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Curso optativo II </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06OPT3" data-requisitos="DER06321,DER06322,DER06323,DER06324" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Curso optativo III </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="credito-info">
+        <span class="actuales">Créditos actuales: 0</span><br>
+        <span class="maximos">Máximo permitido: 32</span>
+      </div>
+    </div>
+    <div class="semestre">
+      <h2>9º Semestre</h2>
+      <hr class="linea-decorativa">
+      <div class="curso" id="DER06C_F2" data-requisitos="DER06411,DER06412,DER06413,DER06414,DER06324,CFG6_6" data-creditos="12" onclick="marcarCurso(this)">
+        <h3>ACI Clínicas jurídicas 2/Pasantía supervisada</h3>
+        <p>12 créditos</p>
+      </div>
+      <div class="curso" id="DER06511" data-requisitos="DER6213" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Filosofía del Derecho</h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06OPT4" data-requisitos="DER06321,DER06322,DER06323,DER06324" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Curso optativo IV </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="curso" id="DER06512" data-requisitos="DER06C_F1" data-creditos="10" onclick="marcarCurso(this)">
+        <h3>Seminario de investigación y escritura jurídica avanzada </h3>
+        <p>10 créditos</p>
+      </div>
+      <div class="credito-info">
+        <span class="actuales">Créditos actuales: 0</span><br>
+        <span class="maximos">Máximo permitido: 32</span>
+      </div>
+    </div>
+    <div class="semestre">
+      <h2>10º Semestre</h2>
+      <hr class="linea-decorativa">
+      <div class="curso" id="DER06521 " data-requisitos="DER06415,DER06416,DER06C_F2,DER06511,DER06512" data-creditos="18" onclick="marcarCurso(this)">
+          <h3>ACI Curso de integración y actividad de licenciatura</h3>
+          <p>18 créditos</p>
+      </div>
+      <div class="curso" id="DER06522" data-requisitos="DER06C_F2" data-creditos="3" onclick="marcarCurso(this)">
+        <h3>Ética y responsabilidad profesional en la abogacía</h3>
+        <p>3 créditos</p>
+      </div>
+      <div class="curso" id="DER06523" data-requisitos="DER06C_F2" data-creditos="3" onclick="marcarCurso(this)">
+        <h3>Taller de inserción y emprendimiento profesional</h3>
+        <p>3 créditos</p>
+      </div>
+      <div class="curso" id="DER06OPT5" data-requisitos="DER06321,DER06322,DER06323,DER06324" data-creditos="5" onclick="marcarCurso(this)">
+        <h3>Curso optativo V </h3>
+        <p>5 créditos</p>
+      </div>
+      <div class="credito-info">
+        <span class="actuales">Créditos actuales: 0</span><br>
+        <span class="maximos">Máximo permitido: 32</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="controls">
+    <button onclick="exportarPDF()" class="btn-export">📄 Exportar a PDF</button>
+    <button onclick="limpiarDatos()" class="btn-clear">🗑️ Limpiar Datos</button>
+  </div>
+    
+</body>
+
+</html>
